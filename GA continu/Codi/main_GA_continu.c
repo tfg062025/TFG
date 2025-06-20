@@ -67,7 +67,7 @@ bool bernoulli (const double prob) {
 /********** ESTRUCTURA DELS INDIVIDUS *****************************************
 
 * Estructura de 7 doubles:
-	* 6 Parametres 
+	* 6 parametres/gens
 	* Valor fitness
 
 *******************************************************************************/
@@ -258,7 +258,18 @@ void mutacio(individu *p, int generacio, double r) {
 
 }
 
-/********** VISUALITZACIÓ RESULTATS ********************************************/
+/********** VISUALITZACIÓ RESULTATS *******************************************
+
+ * mostrar_individu 	   : Mostra per pantalla els valors dels paràmetres i fitness 
+					         d'un individu 
+
+ * escriure_resultat	   : Escriu en un fitxer els valors dels paràmetres i fitness
+					         d'un individu
+
+ * escriure_resultat_taula : Escriu en un fitxer els valors dels paràmetres i fitness
+					         en forma de taula per facilitar l'extracció de dades
+
+*******************************************************************************/
 
 void mostrar_individu(individu P){
 
@@ -293,10 +304,11 @@ void escriure_resultat_taula(FILE * f, individu Best){
 	fprintf(f,"%.16lf ",  Best.sigma);
 	fprintf(f,"%.16lf ", Best.delta);
 	fprintf(f,"%.16lf ", Best.fitness);
+	
 
 }
 
-/********** ALGORISME GENETIC **************************************************/
+/******** ALGORISME GENÈTIC (PSEUDOCODI ALGORISME 4.1)************************/
 
 void GA(individu *Best){
 
@@ -334,7 +346,17 @@ void GA(individu *Best){
 	}
 	
 	while(contador<100){
+		
 
+		char nom_hist[64];
+	
+		sprintf(nom_hist,"generació_%i.txt", generacio);
+		FILE * hist = fopen(nom_hist, "w");
+		for(int i=0;i<POPSIZE;i++){
+			escriure_resultat_taula(hist,P[i]);
+			fprintf(hist,"\n");
+		}
+		fclose(hist);
 		bestfitness_ant=bestfitness;
 		
 		for(int j=0;j<POPSIZE/2;j++){
@@ -397,6 +419,15 @@ void GA(individu *Best){
 	free(orig);
 }
 
+
+/********** FUNCIONS ANÀLISI DE RESULTATS *************************************
+
+ * min_max_scalling : Escalat min-max per igualar les escales dels paràmetres
+
+ * calcul_norma		: Calcula la norma L2 entre els paràmetres de dos individus 
+
+*******************************************************************************/
+
 double min_max_scalling(double diff, double min, double max){
 	return (diff-min)/(max-min);
 }
@@ -411,6 +442,7 @@ double calcul_norma(individu ref, individu p){
 	double dist = sqrt(dx_0*dx_0 + dphi*dphi + dlambda*dlambda + dmu*dmu + dsigma*dsigma + ddelta*ddelta);
 	return dist;
 }
+
 /********** CÀLCUL DE L'ÒPTIM ***********************************************/
 
 int main(){
@@ -447,7 +479,9 @@ int main(){
 
 	final = clock();
 	
-	//Codi per evaluar la distancia dels parametres a l'optim i el temps de computació
+	//Codi per el fitxer d'anàlisi de resultats:
+		//Evaluar la distancia dels parametres a l'optim 
+		//Adquirir el temps de computació
 	
 	/*double temps = ((double) (final - inici)) / CLOCKS_PER_SEC;
 	individu ref = {15670.5560275192783593, 0.2497248909716255, 1570.2313809039706030, 0.0, 0.4904756364357690, 8944.2282749675759987, 2566.999667640135158};

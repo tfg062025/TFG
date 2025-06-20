@@ -86,7 +86,7 @@
 /********** ESTRUCTURA DELS INDIVIDUS *****************************************
 
 * Estructura de 7 components:
-	* 6 Parametres  (unsigned int)
+	* 6 gens (unsigned int)
 	* Valor fitness (double)
 
 *******************************************************************************/
@@ -107,6 +107,7 @@ typedef struct Individu{
 /********** FUNCIONS GA ********************************************************
  * fenotip				 : A partir de la funció morfogènica obté els valors 
 						   dels parametres que formen el fenotip d'un individu
+
  * inicialitzar_poblacio : Genera una població P(0) a partir de la generació 
  						   de POPSIZE nombres pseudo-aleatòris distribuits 
 						   uniformement per a cada parametre dins del compacte K
@@ -231,7 +232,15 @@ void mutacio(individu *p){
 }
 
 
-/********** VISUALITZACIÓ RESULTATS ********************************************/
+/********** VISUALITZACIÓ RESULTATS *******************************************
+
+ * mostrar_individu : Mostra per pantalla els valors dels paràmetres i fitness 
+					  d'un individu 
+
+ * escriure_resultat: Escriu en un fitxer els valors dels paràmetres i fitness
+					  d'un individu
+
+*******************************************************************************/
 
 void mostrar_individu(individu P){
 
@@ -256,6 +265,9 @@ void escriure_resultat(FILE * f, individu P){
 	fprintf(f, "\n\n");
 
 }
+
+/******** ALGORISME GENÈTIC (PSEUDOCODI ALGORISME 4.1)************************/
+
 void GA(individu *Best){
 	
 	int contador=0;
@@ -331,6 +343,8 @@ void GA(individu *Best){
 
 }
 
+/********** CÀLCUL DE L'ÒPTIM ***********************************************/
+
 int main(){
 	
 	if(POPSIZE % 2 == 1){
@@ -345,7 +359,7 @@ int main(){
 
 	char nom_fitxer[64];
 
-	sprintf(nom_fitxer,"GA_discret_P%i_PM%.3lf_T%iPC_0.8.txt", POPSIZE, P_M,T);
+	sprintf(nom_fitxer,"GA_discret_P%i_PM%.3lf_T%i.txt", POPSIZE, P_M,T);
 	FILE * f = fopen(nom_fitxer, "a");
 
 	if (f == NULL) {
