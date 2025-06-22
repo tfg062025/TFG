@@ -6,8 +6,9 @@ En aquest projecte s'implementen en llenguatge de programació C, tres mètodes 
 
 $\frac{d}{dt}x(t)= \varphi x(t) -\beta x(t)^2-\lambda D(x(t))$
 
-$D(x,\mu,\sigma,\delta) ={
- 
-		\frac{1-\mathcal{E}_{dir}(x,\mu,\sigma,\delta)}{1-\mathcal{E}_{dir}(0,\mu,\sigma,\delta)}& \text{si } 0 \leq x \leq \delta \\
-		\frac{1-\mathcal{E}(x,\sigma,\delta)}{1-\mathcal{E}_{dir}(0,\mu,\sigma,\delta)} & \text{si } x > \delta $
+D(x, μ, σ, δ) = {
+    (1 - ℰ_dir(x, μ, σ, δ)) / (1 - ℰ_dir(0, μ, σ, δ))     si 0 ≤ x ≤ δ
+    (1 - ℰ(x, σ, δ))       / (1 - ℰ_dir(0, μ, σ, δ))     si x > δ
+}
+
 
