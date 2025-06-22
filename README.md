@@ -1,1 +1,1 @@
-# Ajust-d-equacions-diferencials-ordin-ries-a-dades-de-s-ries-temporals-curtes-
+# TFG
