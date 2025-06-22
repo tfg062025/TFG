@@ -9,6 +9,6 @@ $\frac{d}{dt}x(t)= \varphi x(t) -\beta x(t)^2-\lambda D(x(t))$
 D(x, μ, σ, δ) = {
     (1 - ℰ_dir(x, μ, σ, δ)) / (1 - ℰ_dir(0, μ, σ, δ))     si 0 ≤ x ≤ δ
     (1 - ℰ(x, σ, δ))       / (1 - ℰ_dir(0, μ, σ, δ))     si x > δ
-}
+
 
 
