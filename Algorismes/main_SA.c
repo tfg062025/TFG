@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "generador_aleatori.h"
 #include "FMD.h"
 #include <float.h>
 #include <string.h>
+#include <time.h>
 
 /********** HIPERPARAMENTRES GA ***********************************************
 
