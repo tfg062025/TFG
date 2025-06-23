@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 carpeta_fitxers = 'Fitxers'
 
 dades_per_T = {15: {}, 75: {}, 125: {}}
-
+fitness_star=2566.999667640135158
 nom = r'GA_continu_evolucio_P15000_PM([0-9.]+)_T(15|75|125)'
 
 for nom_fitxer in os.listdir(carpeta_fitxers):
@@ -21,6 +21,19 @@ for nom_fitxer in os.listdir(carpeta_fitxers):
 carpeta_sortida = 'Gràfiques'
 os.makedirs(carpeta_sortida, exist_ok=True)
 
+def estadistiques(T):
+    print("T={}\n".format(T))
+    for pm, valors in sorted(dades_per_T[T].items()):
+        print("P_M={} \n".format(pm))
+        for i, fit in enumerate(dades_per_T[T][pm]):
+            if abs(fit - fitness_star) < 0.1:
+                gen = i
+                break
+
+                    
+        print("Generació d'aproximació a l'optim:{}".format(gen))
+        print("Generacions necessàries per convergir:{}\n".format(len(dades_per_T[T][pm])))
+    
 def dibuixar_per_T(T, dades):
     
     for pm, valors in sorted(dades.items()):
@@ -41,4 +54,4 @@ def dibuixar_per_T(T, dades):
 
 for T in [15, 75, 125]:
     dibuixar_per_T(T, dades_per_T[T])
-
+    estadistiques(T)
