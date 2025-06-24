@@ -40,7 +40,11 @@ Per a cada algorisme hi ha un fitxer `.sh` que permet compilar-lo i executar-lo 
 
 ```bash
 ./executar_GA_discret.sh
+```
+```bash
 ./executar_GA_continu.sh
+```
+```bash
 ./executar_SA.sh
 ```
 
