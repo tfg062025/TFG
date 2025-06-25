@@ -94,7 +94,7 @@ Inclou diversos scripts en Python per:
 - Visualitzar l’evolució del fitness del millor individu obtingut al llarg de les generacions
 - Calcular estadístiques comparatives entre GA continu i SA
 
-Tots els scripts utilitzen `numpy` i `matplotlib`.
+Els scripts utilitzen `numpy`, `matplotlib.pyplot`, `os`, `re`, `glob`.
 
 ---
 
