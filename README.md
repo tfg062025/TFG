@@ -47,12 +47,6 @@ Per a cada algorisme hi ha un fitxer `.sh` que permet compilar-lo i executar-lo 
 ```bash
 ./executar_SA.sh
 ```
-A més, es proporciona un fitxer `.sh` addicional que permet integrar la solució de l’equació diferencial utilitzant els paràmetres obtinguts amb l’algorisme Simulated Annealing. Aquest script també permet modificar fàcilment aquests paràmetres per obtenir altres ajustos del model:
-
-```bash
-./integrar_solucio.sh
-```
-
 ---
 
 **IMPORTANT**: Si és la primera vegada que s’executen, cal donar permisos d’execució:
@@ -79,6 +73,12 @@ for i in {1..n}
 on `n` és el nombre de repeticions desitjades.
 
 Els hiperparàmetres de cada algorisme es poden modificar al fitxer `main.c` corresponent, modificant els `#define`.
+
+A més, es proporciona un fitxer `.sh` addicional que permet integrar la solució de l’equació diferencial utilitzant els paràmetres obtinguts amb l’algorisme Simulated Annealing. Aquest script també permet modificar fàcilment aquests paràmetres per obtenir altres ajustos del model:
+
+```bash
+./integrar_solucio.sh
+```
 
 ## Resultats
 
