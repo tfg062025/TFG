@@ -1,0 +1,8 @@
+#!/bin/bash
+
+gcc -o integrar_solucio FMD.h SE-FullModel-Prediction.c RKF78.h RKF78.c -lm;
+
+./integrar_solucio --full-solution 15670.5621593543892232 0.2497247971874101 1570.2401891142908426 0.0000000000000000 0.4904598874420069 8944.1604840905874880;
+
+
+
