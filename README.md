@@ -55,7 +55,6 @@ Per a cada algorisme hi ha un fitxer `.sh` que permet compilar-lo i executar-lo 
 chmod +x executar_GA_discret.sh
 chmod +x executar_GA_continu.sh
 chmod +x executar_SA.sh
-chmod +x integrar_solucio.sh
 ```
 
 Els scripts estan configurats per executar l’algorisme una única vegada. Si es volen fer múltiples execucions, es pot modificar la línia:
@@ -77,6 +76,7 @@ Els hiperparàmetres de cada algorisme es poden modificar al fitxer `main.c` cor
 A més, es proporciona un fitxer `.sh` addicional que permet integrar la solució de l’equació diferencial utilitzant els paràmetres obtinguts amb l’algorisme Simulated Annealing. Aquest script també permet modificar fàcilment aquests paràmetres per obtenir altres ajustos del model:
 
 ```bash
+chmod +x integrar_solucio.sh
 ./integrar_solucio.sh
 ```
 
