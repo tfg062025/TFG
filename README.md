@@ -104,7 +104,7 @@ Inclou diversos scripts en Python per:
 
 Els scripts utilitzen `numpy`, `matplotlib.pyplot`, `os`, `re`, `glob`.
 
-Inclou també un fitxer bash per a la visualització de l'ajust del model a les dades a partir dels resultats obtinguts amb SA. Aquest es pot executar a partir de la següent comanda:
+Inclou també un fitxer bash per a la visualització de l'ajust del model a les dades a partir dels resultats obtinguts amb `integrar_solucio.sh`. Aquest es pot executar a partir de la següent comanda:
 
 ```bash
 chmod +x ajust_model.sh
