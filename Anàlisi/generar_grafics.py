@@ -2,7 +2,9 @@ import os
 import re
 import matplotlib.pyplot as plt
 
-carpeta_fitxers = 'Fitxers'
+carpeta_fitxers = os.path.join(os.path.dirname(__file__), '..', 'Resultats', 'Execucions GA discret')
+carpeta_sortida = os.path.join(os.path.dirname(__file__), '..', 'Figures', 'Evolució del fitness millor individu GA continu')
+os.makedirs(carpeta_sortida, exist_ok=True)
 
 dades_per_T = {15: {}, 75: {}, 125: {}}
 fitness_star=2566.999667640135158
@@ -18,8 +20,6 @@ for nom_fitxer in os.listdir(carpeta_fitxers):
             valors = [float(fila.strip()) for fila in f if fila.strip()]
             dades_per_T[T][pm] = valors
 
-carpeta_sortida = 'Gràfiques'
-os.makedirs(carpeta_sortida, exist_ok=True)
 
 def estadistiques(T):
     print("T={}\n".format(T))
