@@ -84,6 +84,7 @@ A la carpeta `\Resultats` es troben diversos fitxers `.txt` obtinguts a partir d
 
 - **SA**: Té la mateixa estructura que l’algorisme anterior.
 
+També s'inclouen els fitxers utilitzats per a la generació de les Figures per a la generació de figures 
 ---
 
 ## Anàlisi
@@ -96,6 +97,15 @@ Inclou diversos scripts en Python per:
 
 Els scripts utilitzen `numpy`, `matplotlib.pyplot`, `os`, `re`, `glob`.
 
+Inclou també un fitxer bash per a la visualització de l'ajust del model a les dades. Aquest es pot executar a partir de la següent comanda:
+
+```bash
+
+chmod +x ajust_model.sh
+./ajust_model.sh
+
+```
+
 ---
 
 ## Figures
@@ -105,6 +115,8 @@ A la carpeta `\Figures` es troben:
 - **Histogrames (GA continu)**: Mostren com, a partir d’una població inicial P(0) distribuïda uniformement, l’algorisme va concentrant la població en regions de baix cost, seleccionant instàncies d’esquemes amb millor fitness.
 
 - **Evolució del fitness (GA continu)**: Representa el valor mínim de fitness assolit en funció de les generacions. Serveix per comparar eficiència i convergència en funció dels hiperparàmetres `T` i `P_M`.
+
+- **Ajust del model a les dades a partir de l'òptim trobat a partir de l'algorisme SA**: Aquest mostra la dinàmica del sistema amb els paràmetres obtinguts. Aquesta representació a partir dels resultats del GA és pràcticament idèntica. 
 
 ---
 
