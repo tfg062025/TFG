@@ -7,11 +7,12 @@ carpeta_fitxers = "Fitxers"
 
 noms_parametres = ["x0", "phi", "lambda", "mu", "sigma", "delta"]
 
-carpeta_base = "Histogrames evolució de la població"
-os.makedirs(carpeta_base, exist_ok=True)
+carpeta_fitxers = os.path.join(os.path.dirname(__file__), '..', 'Resultats', 'Fitxers poblacions GA continu')
+carpeta_sortida = os.path.join(os.path.dirname(__file__), '..', 'Figures', 'Histogrames evolució població GA continu')
+os.makedirs(carpeta_sortida, exist_ok=True)
 
 for nom in noms_parametres:
-    os.makedirs(os.path.join(carpeta_base, nom), exist_ok=True)
+    os.makedirs(os.path.join(carpeta_sortida, nom), exist_ok=True)
 
 def extreure_numero(nom_fitxer):
     return int(nom_fitxer.split('_')[-1].split('.')[0])
@@ -32,5 +33,7 @@ for idx, fitxer in enumerate(fitxers):
         plt.xlabel(nom_param)
         plt.ylabel("Freqüència")
         plt.tight_layout()
-        plt.savefig(os.path.join(carpeta_base, nom_param, f"generació_{generacio_idx}.png"))
+        plt.savefig(os.path.join(carpeta_sortida, nom_param, f"generació_{generacio_idx}.png"))
         plt.close()
+
+print("Figures guardades amb èxit")
