@@ -1,9 +1,10 @@
 import numpy as np
+import os
 
-def llegir_observacions(nom_fitxer):
+def llegir_observacions(nom_fitxer,carpeta):
     observacions = []
-    
-    with open(nom_fitxer, 'r', encoding='utf-8') as f:
+    directori = os.path.join(os.path.dirname(__file__), '..', 'Resultats',carpeta, nom_fitxer)
+    with open(directori, 'r', encoding='utf-8') as f:
         contingut = f.read()
 
     blocs = contingut.strip().split('\n\n')
@@ -29,10 +30,10 @@ def calcular_mitjanes_columnes(observacions):
 
 columnes = ["x(0)", "φ", "λ", "μ", "σ", "δ", "fitness", "distància", "temps"]
 execucions_totals=50
-observacions_globals_SA = llegir_observacions("Comparació_SA_globals.txt")
+observacions_globals_SA = llegir_observacions("Execucions_SA_globals.txt", "Execucions SA")
 mitjanes_globals_SA = calcular_mitjanes_columnes(observacions_globals_SA)
 
-observacions_globals_GA = llegir_observacions("Comparació_GA_globals.txt")
+observacions_globals_GA = llegir_observacions("Execucions_GA_globals.txt","Execucions GA continu")
 mitjanes_globals_GA = calcular_mitjanes_columnes(observacions_globals_GA)
 
 print("Proporció d'èxit SA: {}\n".format(len(observacions_globals_SA)/execucions_totals))
