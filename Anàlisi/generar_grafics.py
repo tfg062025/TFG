@@ -2,7 +2,7 @@ import os
 import re
 import matplotlib.pyplot as plt
 
-carpeta_fitxers = os.path.join(os.path.dirname(__file__), '..', 'Resultats', 'Execucions GA discret')
+carpeta_fitxers = os.path.join(os.path.dirname(__file__), '..', 'Resultats', 'Fitxers evolució fitness GA continu')
 carpeta_sortida = os.path.join(os.path.dirname(__file__), '..', 'Figures', 'Evolució del fitness millor individu GA continu')
 os.makedirs(carpeta_sortida, exist_ok=True)
 
